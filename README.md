@@ -2,6 +2,8 @@
 
 Crash-proof your uncommitted work. Every few minutes `parachute` snapshots the dirty and untracked files of **every git repo and worktree** under directories you choose, and pushes the snapshots (plus local-only branch tips) to hidden `backup/*` branches on your **private** remote. Works as a Claude Code skill (`SKILL.md`) or standalone.
 
+![Parachute menu bar icon: floating while it backs up, landing when done](docs/preview.gif)
+
 Why: `git` protects only what you committed *and pushed*. A kernel panic, dead SSD or `rm -rf` in the wrong terminal loses everything else.
 
 ## 60-second quickstart
@@ -77,7 +79,11 @@ Each real pass (not `--dry-run`, not prune) writes `${XDG_STATE_HOME:-~/.local/s
 
 ## Menu bar app
 
-A native macOS menu bar companion lives in `/app` (coming). It reads `status.json`; it never needs to run the scripts itself.
+![All icon states: running, landing, idle, error, partial, reduce-motion](docs/frames.png)
+
+A native macOS menu bar companion lives in [`/app`](app/) (Swift 6, AppKit, no dependencies). The icon is a parachute drawn in code. It floats while a backup runs, lands when it finishes, and shows a badge if something needs attention. With Reduce Motion on it pulses instead. Menu: status, "Back up now", "Restore…", log, config, launch at login.
+
+It reads `status.json`; the CLI does all the work. Build with `cd app && ./build-app.sh` (output: `app/build/Parachute.app`, ad-hoc signed, so right-click → Open the first time). Early: the animation and menu have been checked as rendered frames and a launch test, not yet by long daily use.
 
 ## Pruning old backup branches
 
