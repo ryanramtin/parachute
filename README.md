@@ -6,6 +6,18 @@ Crash-proof your uncommitted work. Every few minutes `parachute` snapshots the d
 
 Why: `git` protects only what you committed *and pushed*. A kernel panic, dead SSD or `rm -rf` in the wrong terminal loses everything else.
 
+## Install
+
+Parachute ships three ways. They share one engine (the CLI), so pick what fits.
+
+| You want | Do this |
+|---|---|
+| **Claude Code skill** (ask Claude to set up and restore backups) | `git clone https://github.com/ryanramtin/parachute ~/.claude/skills/parachute`, then start a new Claude Code session and say "set up Parachute" or "back up my uncommitted work". Claude runs the CLI for you. |
+| **CLI only** (works with any shell, no Claude needed) | Follow the [quickstart](#60-second-quickstart) below. |
+| **Menu bar app** (macOS, parachute icon that animates while it backs up) | Needs the CLI above, plus Xcode or the Swift toolchain: `cd app && ./build-app.sh`, then right-click `app/build/Parachute.app` and choose Open the first time (ad-hoc signed). A prebuilt download is not available yet. |
+
+The skill and CLI can live in the same clone: after cloning into `~/.claude/skills/parachute`, run the quickstart commands from that folder.
+
 ## 60-second quickstart
 
 ```sh
