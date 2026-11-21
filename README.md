@@ -150,6 +150,10 @@ Then `systemctl --user enable --now parachute.timer`.
 
 **Tests?** `bash test/run.sh` (uses throwaway repos and a local bare origin; exits nonzero on failure).
 
+## Related
+
+- [**shiplog**](https://github.com/ryanramtin/shiplog) — the other half: parachute saves work you haven't committed, shiplog records what you did. One line per shipped change, across every agent.
+
 ## License
 
 MIT
