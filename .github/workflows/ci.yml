@@ -14,7 +14,9 @@ jobs:
       - name: shell syntax
         run: |
           bash -n scripts/parachute.sh
-          bash -n install.sh
+          bash -n scripts/install.sh
+          bash -n scripts/uninstall.sh
+          bash -n scripts/parachute-restore.sh
           bash -n test/run.sh
       - name: tests
         run: bash test/run.sh
